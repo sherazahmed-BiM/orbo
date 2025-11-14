@@ -1,6 +1,6 @@
 export default function Testimonial() {
   return (
-    <section className="relative bg-gradient-to-b from-white via-gray-50 to-gray-50 py-32">
+    <section className="relative bg-gradient-to-b from-gray-50 via-blue-50/30 to-gray-50 py-32">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <blockquote className="mb-12 animate-fade-in-delay-1">
           <p className="text-5xl md:text-6xl font-light leading-relaxed text-gray-700">

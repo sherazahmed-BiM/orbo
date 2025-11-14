@@ -6,7 +6,7 @@ export default function Team() {
     <section className="relative bg-gray-50 py-32">
       <div className="max-w-7xl mx-auto px-6">
         <ScrollAnimation animationType="fade-up">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <ScrollAnimation animationType="fade-up" delay={0}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
                 <Users className="w-4 h-4 text-gray-700" strokeWidth={2} />

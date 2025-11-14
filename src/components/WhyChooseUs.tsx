@@ -1,4 +1,5 @@
-import { Star, Zap, TrendingUp, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, Zap, Users } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 
 export default function WhyChooseUs() {
@@ -126,38 +127,110 @@ function ClockAnimation() {
   );
 }
 
+function AnimatedNumber({ value, suffix, delay = 0 }: { value: number; suffix: string; delay?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+    
+    const timer = setTimeout(() => {
+      const duration = 1500; // 1.5 seconds
+      const steps = 60;
+      const increment = value / steps;
+      const stepDuration = duration / steps;
+
+      let current = 0;
+      interval = setInterval(() => {
+        current += increment;
+        if (current >= value) {
+          setCount(value);
+          if (interval) clearInterval(interval);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, stepDuration);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
+  }, [value, delay]);
+
+  return (
+    <span>
+      {count}% {suffix}
+    </span>
+  );
+}
+
 function ChartAnimation() {
+  const containerHeight = 160; // h-40 = 160px
   const bars = [
-    { height: '40%', label: '10% Cost' },
-    { height: '60%', label: 'AFTER' },
-    { height: '85%', label: '' },
-    { height: '80%', label: '80% Automation' },
+    { heightPercent: 35, label: 'AFTER', labelPosition: 'left', animated: true },
+    { heightPercent: 45 },
+    { heightPercent: 85, label: '80% Automation', labelPosition: 'top', animated: true, number: 80 },
+    { heightPercent: 65, label: '10% Cost', labelPosition: 'right', animated: true, number: 10 },
+    { heightPercent: 40 },
   ];
 
   return (
-    <div className="flex items-end justify-center gap-4 h-32 relative">
-      {bars.map((bar, idx) => (
-        <div
-          key={idx}
-          className="group/bar flex flex-col items-center"
-          style={{
-            animation: `pulse-bar 2s ease-in-out infinite`,
-            animationDelay: `${idx * 0.15}s`,
-          }}
-        >
-          <div className="absolute -top-8 text-xs font-semibold text-gray-600 whitespace-nowrap opacity-0 group-hover/bar:opacity-100 transition-opacity">
-            {bar.label}
-          </div>
-
+    <div className="flex items-end justify-center gap-3 h-40 relative px-4">
+      {bars.map((bar, idx) => {
+        const barHeight = (containerHeight * bar.heightPercent) / 100;
+        return (
           <div
-            className="w-4 bg-gradient-to-t from-gray-800 to-gray-600 rounded-md shadow-md transition-all"
-            style={{
-              height: bar.height,
-              minHeight: '12px',
-            }}
-          ></div>
-        </div>
-      ))}
+            key={idx}
+            className="group/bar flex flex-col items-center relative"
+          >
+            {/* Top label */}
+            {bar.labelPosition === 'top' && (
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white rounded-lg px-3 py-1.5 shadow-md text-xs font-semibold text-gray-900 whitespace-nowrap z-10">
+                {bar.number !== undefined ? (
+                  <AnimatedNumber value={bar.number} suffix="Automation" delay={300} />
+                ) : (
+                  bar.label
+                )}
+              </div>
+            )}
+            
+            {/* Right label */}
+            {bar.labelPosition === 'right' && (
+              <div className="absolute -top-8 right-0 bg-white rounded-lg px-3 py-1.5 shadow-md text-xs font-semibold text-gray-900 whitespace-nowrap z-10">
+                {bar.number !== undefined ? (
+                  <AnimatedNumber value={bar.number} suffix="Cost" delay={500} />
+                ) : (
+                  bar.label
+                )}
+              </div>
+            )}
+
+            <div className="relative flex items-end w-full justify-center">
+              {/* Left label (vertical text) */}
+              {bar.labelPosition === 'left' && (
+                <div 
+                  className="absolute -left-10 top-1/2 -translate-y-1/2 -rotate-90 origin-center"
+                  style={{
+                    animation: bar.animated ? 'fade-in-slide 1s ease-out forwards' : 'none',
+                    animationDelay: '0.3s',
+                    opacity: bar.animated ? 0 : 1,
+                  }}
+                >
+                  <span className="text-xs font-bold text-gray-900 whitespace-nowrap">{bar.label}</span>
+                </div>
+              )}
+              
+              <div
+                className="w-10 bg-white rounded-t-md shadow-lg border border-gray-200"
+                style={{
+                  height: `${barHeight}px`,
+                  minHeight: '30px',
+                }}
+              ></div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -171,10 +244,33 @@ function UsersAnimation() {
 
   return (
     <div className="relative w-32 h-32 flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full shadow-md flex items-center justify-center">
-        <div className="w-12 h-12 relative">
+      {/* Signal waves animation */}
+      {[0, 1, 2].map((ring) => (
+        <div
+          key={ring}
+          className="absolute inset-0 rounded-full border-2 border-blue-500/40"
+          style={{
+            animation: `signal-pulse 2s ease-out infinite`,
+            animationDelay: `${ring * 0.4}s`,
+            transform: 'scale(0.8)',
+            opacity: 0.6,
+          }}
+        />
+      ))}
+      
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full shadow-md flex items-center justify-center z-10">
+        <div className="w-12 h-12 relative z-20">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-600 rounded-full flex items-center justify-center">
             <div className="absolute inset-0 bg-white rounded-full opacity-20"></div>
+            {/* Small pulsing dot in center */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div 
+                className="w-2 h-2 bg-blue-500 rounded-full"
+                style={{
+                  animation: 'signal-pulse-dot 1.5s ease-out infinite',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -182,7 +278,7 @@ function UsersAnimation() {
       {positions.map((pos, idx) => (
         <div
           key={idx}
-          className="absolute w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center border-2 border-gray-200"
+          className="absolute w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center border-2 border-gray-200 z-10"
           style={{
             animation: `float-user 4s ease-in-out infinite`,
             animationDelay: `${idx * 0.5}s`,
