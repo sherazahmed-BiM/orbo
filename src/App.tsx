@@ -7,6 +7,10 @@ import Services from './components/Services';
 import Process from './components/Process';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
+import Comparison from './components/Comparison';
+import Team from './components/Team';
+import FAQ from './components/FAQ';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
       <Process />
       <Projects />
       <Testimonials />
+      <Comparison />
+      <Team />
+      <FAQ />
+      <Footer />
     </div>
   );
 }
