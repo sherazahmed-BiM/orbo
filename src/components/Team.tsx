@@ -1,27 +1,37 @@
 import { Users, ChevronLeft, ChevronRight } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function Team() {
   return (
     <section className="relative bg-gray-50 py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
-            <Users className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              TEAM
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-16">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
+                <Users className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  TEAM
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Team Behind Success
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Meet the experts behind our AI—driven to deliver smart solutions.
+              </p>
+            </ScrollAnimation>
           </div>
+        </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4">
-            Team Behind Success
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Meet the experts behind our AI—driven to deliver smart solutions.
-          </p>
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-12">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="relative max-w-6xl mx-auto px-12">
           {/* Navigation Arrow Left */}
           <button className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-gray-800 rounded-full items-center justify-center text-white shadow-lg hover:bg-gray-900 transition-all hover:scale-110">
             <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
@@ -51,6 +61,7 @@ export default function Team() {
             <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
           </button>
         </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

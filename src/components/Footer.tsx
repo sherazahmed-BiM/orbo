@@ -2,37 +2,46 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-white py-32 overflow-hidden">
-      {/* Wavy background pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.03) 2px,
-            rgba(0, 0, 0, 0.03) 4px
-          )`,
-        }}></div>
+    <footer className="relative py-16 overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50">
+        <div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            background: 'linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02)), linear-gradient(45deg, rgba(0,0,0,0.02) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.02) 75%, rgba(0,0,0,0.02))',
+            backgroundSize: '40px 40px',
+            backgroundPosition: '0 0, 20px 20px',
+            animation: 'footer-pattern 20s linear infinite',
+          }}
+        ></div>
+        {/* Animated gradient overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(156, 163, 175, 0.1) 0%, rgba(229, 231, 235, 0.1) 50%, rgba(156, 163, 175, 0.1) 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'footer-gradient 8s ease infinite',
+          }}
+        ></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6">
         {/* Main Footer Content - Large Sphere */}
-        <div className="relative bg-white/80 backdrop-blur-xl rounded-full p-16 md:p-24 shadow-2xl border border-gray-100 mb-16">
+        <div className="relative bg-white/80 backdrop-blur-xl rounded-full p-10 md:p-14 shadow-2xl border border-gray-100 mb-10">
           <div className="flex flex-col items-center text-center">
-            {/* Social Media Icons - Top Left */}
-            <div className="absolute top-8 left-8 flex items-center gap-3">
+            {/* Social Media Icons - Centered */}
+            <div className="flex items-center justify-center gap-3 mb-6">
               <SocialIcon href="#" icon="x" />
               <SocialIcon href="#" icon="instagram" />
               <SocialIcon href="#" icon="linkedin" />
             </div>
 
             {/* Logo */}
-            <div className="mb-8">
-              <div className="w-20 h-20 relative mx-auto mb-6">
+            <div className="mb-6">
+              <div className="w-16 h-16 relative mx-auto mb-4">
                 <div className="absolute inset-0 bg-gray-900 rounded-full border-4 border-white shadow-lg"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-10 h-10">
+                  <div className="relative w-8 h-8">
                     {/* Two overlapping right-pointing arrows */}
                     <svg className="absolute inset-0 text-white" fill="currentColor" viewBox="0 0 24 24" style={{ transform: 'translateX(-2px)' }}>
                       <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
@@ -46,18 +55,18 @@ export default function Footer() {
             </div>
 
             {/* ORB AI Text */}
-            <h2 className="text-7xl md:text-8xl font-bold mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold mb-3">
               <span className="text-gray-900">ORB</span>{' '}
               <span className="text-gray-600">AI</span>
             </h2>
 
             {/* Tagline */}
-            <p className="text-xl text-gray-600 mb-12 max-w-md">
+            <p className="text-lg text-gray-600 mb-8 max-w-md">
               Next-gen AI systems, built for tomorrow's innovators
             </p>
 
             {/* Get Started Button */}
-            <button className="px-8 py-4 bg-gray-900 text-white rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-1 shadow-lg flex items-center gap-2">
+            <button className="px-6 py-3 bg-gray-900 text-white rounded-2xl font-semibold text-base hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-1 shadow-lg flex items-center gap-2">
               Get Started
               <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
             </button>
@@ -65,7 +74,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Navigation Links */}
-        <nav className="flex flex-wrap items-center justify-center gap-8 text-gray-700">
+        <nav className="flex flex-wrap items-center justify-center gap-6 text-gray-700 text-sm">
           <a href="#features" className="underline hover:text-gray-900 transition-colors font-medium">
             Features
           </a>

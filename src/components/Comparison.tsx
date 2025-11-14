@@ -1,27 +1,37 @@
 import { ArrowLeftRight, Check, ArrowUpRight } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function Comparison() {
   return (
     <section className="relative bg-gray-50 py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
-            <ArrowLeftRight className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              COMPARISON
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-16">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
+                <ArrowLeftRight className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  COMPARISON
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Precision vs Basic
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                See how our AI outperforms competitors with speed.
+              </p>
+            </ScrollAnimation>
           </div>
+        </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4">
-            Precision vs Basic
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            See how our AI outperforms competitors with speed.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* ORB AI Card */}
           <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 flex flex-col">
             <h3 className="text-4xl font-bold text-gray-900 mb-8">ORB AI</h3>
@@ -56,6 +66,7 @@ export default function Comparison() {
             </div>
           </div>
         </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

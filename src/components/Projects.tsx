@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { TrendingUp } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 const projects = [
   {
@@ -44,24 +45,33 @@ export default function Projects() {
   return (
     <section className="relative bg-white py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 animate-fade-in">
-            <TrendingUp className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-20">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
+                <TrendingUp className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
               Projects
             </span>
           </div>
+            </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4 animate-fade-in-delay-1">
-            Proven Impact & Results
-          </h2>
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Proven Impact & Results
+              </h2>
+            </ScrollAnimation>
 
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in-delay-2">
-            Explore projects that reflect our AI expertise & real world impact
-          </p>
-        </div>
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Explore projects that reflect our AI expertise & real world impact
+              </p>
+            </ScrollAnimation>
+          </div>
+        </ScrollAnimation>
 
-        <div className="space-y-8">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="space-y-8">
           <div className="flex justify-center gap-4 animate-fade-in-delay-3">
             {projects.map((project, idx) => (
               <button
@@ -133,7 +143,8 @@ export default function Projects() {
               </div>
             </div>
           )}
-        </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

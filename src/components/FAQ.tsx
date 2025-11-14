@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, Mail } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 interface FAQItem {
   question: string;
@@ -39,24 +40,33 @@ export default function FAQ() {
   return (
     <section className="relative bg-gray-50 py-32">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
-            <HelpCircle className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              FAQS
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-16">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6 shadow-sm">
+                <HelpCircle className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  FAQS
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Questions? Answers!
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Find Some quick answers to the most common questions.
+              </p>
+            </ScrollAnimation>
           </div>
+        </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4">
-            Questions? Answers!
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Find Some quick answers to the most common questions.
-          </p>
-        </div>
-
-        <div className="space-y-4 mb-16">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="space-y-4 mb-16">
           {faqData.map((faq, index) => (
             <div
               key={index}
@@ -80,10 +90,12 @@ export default function FAQ() {
               )}
             </div>
           ))}
-        </div>
+          </div>
+        </ScrollAnimation>
 
         {/* Contact Information */}
-        <div className="text-center">
+        <ScrollAnimation animationType="fade-up" delay={2}>
+          <div className="text-center">
           <div className="inline-flex items-center gap-3 text-gray-700">
             <Mail className="w-5 h-5" strokeWidth={2} />
             <span className="text-lg">
@@ -97,6 +109,7 @@ export default function FAQ() {
             </span>
           </div>
         </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

@@ -1,32 +1,43 @@
 import { MessageCircle, Zap, Settings, AlertCircle, TrendingUp } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function Services() {
   return (
     <section className="relative bg-gradient-to-b from-white via-gray-50 to-white py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 animate-fade-in">
-            <Zap className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              Services
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-20">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
+                <Zap className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  Services
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Our AI-Driven Services
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Leverage AI features that boost performance to your business.
+              </p>
+            </ScrollAnimation>
           </div>
+        </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4 animate-fade-in-delay-1">
-            Our AI-Driven Services
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in-delay-2">
-            Leverage AI features that boost performance to your business.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade-in-delay-3">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <ServiceCard1 />
           <ServiceCard2 />
           <ServiceCard3 />
           <ServiceCard4 />
-        </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

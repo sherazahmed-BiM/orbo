@@ -1,4 +1,5 @@
 import { Star, Zap, TrendingUp, Users } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function WhyChooseUs() {
   const features = [
@@ -13,22 +14,30 @@ export default function WhyChooseUs() {
   return (
     <section className="relative bg-gradient-to-b from-gray-50 via-white to-white py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 animate-fade-in">
-            <Star className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              Benefits
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-20">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
+                <Star className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  Benefits
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                Why Choose Us
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600">
+                Partner with an AI agency delivering smart solutions.
+              </p>
+            </ScrollAnimation>
           </div>
-
-          <h2 className="text-6xl font-bold text-gray-900 mb-4 animate-fade-in-delay-1">
-            Why Choose Us
-          </h2>
-
-          <p className="text-xl text-gray-600 animate-fade-in-delay-2">
-            Partner with an AI agency delivering smart solutions.
-          </p>
-        </div>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 animate-fade-in-delay-3">
           <AnimatedCard

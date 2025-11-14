@@ -1,27 +1,37 @@
 import { Zap, Settings, TrendingUp, MessageCircle } from 'lucide-react';
+import ScrollAnimation from './ScrollAnimation';
 
 export default function Features() {
   return (
     <section className="relative bg-white py-32">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6 animate-fade-in">
-            <Zap className="w-4 h-4 text-gray-700" strokeWidth={2} />
-            <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
-              Features
-            </span>
+        <ScrollAnimation animationType="fade-up">
+          <div className="text-center mb-20">
+            <ScrollAnimation animationType="fade-up" delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full mb-6">
+                <Zap className="w-4 h-4 text-gray-700" strokeWidth={2} />
+                <span className="text-sm font-medium text-gray-700 tracking-wide uppercase">
+                  Features
+                </span>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={1}>
+              <h2 className="text-6xl font-bold text-gray-900 mb-4">
+                All features in 1 tool
+              </h2>
+            </ScrollAnimation>
+
+            <ScrollAnimation animationType="fade-up" delay={2}>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Discover features that simplify workflows & grow your business.
+              </p>
+            </ScrollAnimation>
           </div>
+        </ScrollAnimation>
 
-          <h2 className="text-6xl font-bold text-gray-900 mb-4 animate-fade-in-delay-1">
-            All features in 1 tool
-          </h2>
-
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-fade-in-delay-2">
-            Discover features that simplify workflows & grow your business.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 animate-fade-in-delay-3">
+        <ScrollAnimation animationType="fade-up" delay={1}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           <FeatureCard
             title="Cutting-Edge AI"
             description="Deploy AI solutions that adapt quickly, learn fast, and scale with your business needs."
@@ -53,16 +63,19 @@ export default function Features() {
             imageSrc="https://images.pexels.com/photos/3945657/pexels-photo-3945657.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop"
           />
         </div>
+        </ScrollAnimation>
 
-        <div className="flex items-center justify-center gap-4 animate-fade-in-delay-4">
-          <button className="px-8 py-4 bg-gray-900 text-white rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-1 shadow-lg">
-            Get Started
-          </button>
+        <ScrollAnimation animationType="fade-up" delay={3}>
+          <div className="flex items-center justify-center gap-4">
+            <button className="px-8 py-4 bg-gray-900 text-white rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-1 shadow-lg">
+              Get Started
+            </button>
 
-          <button className="px-8 py-4 bg-white text-gray-900 rounded-2xl font-semibold text-lg border-2 border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg hover:-translate-y-1">
-            See Our Services
-          </button>
-        </div>
+            <button className="px-8 py-4 bg-white text-gray-900 rounded-2xl font-semibold text-lg border-2 border-gray-200 hover:border-gray-300 transition-all hover:shadow-lg hover:-translate-y-1">
+              See Our Services
+            </button>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

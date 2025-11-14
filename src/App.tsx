@@ -16,17 +16,39 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <Hero />
-      <Testimonial />
-      <WhyChooseUs />
-      <Features />
-      <Services />
-      <Process />
-      <Projects />
-      <Testimonials />
-      <Comparison />
-      <Team />
-      <FAQ />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="testimonials">
+        <Testimonial />
+      </section>
+      <section id="benefits">
+        <WhyChooseUs />
+      </section>
+      <section id="features">
+        <Features />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="process">
+        <Process />
+      </section>
+      <section id="projects">
+        <Projects />
+      </section>
+      <section id="updates">
+        <Testimonials />
+      </section>
+      <section id="comparison">
+        <Comparison />
+      </section>
+      <section id="team">
+        <Team />
+      </section>
+      <section id="contact">
+        <FAQ />
+      </section>
       <Footer />
     </div>
   );
