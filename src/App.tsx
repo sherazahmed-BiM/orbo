@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Testimonial from './components/Testimonial';
 import WhyChooseUs from './components/WhyChooseUs';
+import Features from './components/Features';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Hero />
       <Testimonial />
       <WhyChooseUs />
+      <Features />
     </div>
   );
 }
