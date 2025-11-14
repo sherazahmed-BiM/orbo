@@ -388,3 +388,111 @@
     opacity: 1;
   }
 }
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-content-fade-in {
+  animation: content-fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes content-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-text-fade-up {
+  animation: text-fade-up 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes text-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-number-fade-in {
+  animation: number-fade-in 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes number-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-title-fade-in {
+  animation: title-fade-in 1s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+@keyframes title-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-description-fade-in {
+  animation: description-fade-in 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes description-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes stats-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pulse-stats {
+  animation: pulse-stats 3s ease-in-out infinite;
+}
+
+@keyframes pulse-stats {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
